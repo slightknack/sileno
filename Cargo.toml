@@ -1,0 +1,8 @@
+[package]
+name = "sileno"
+version = "0.1.0"
+authors = ["Isaac Clayton <slightknack@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+iced = "0.2"
