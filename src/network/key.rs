@@ -11,7 +11,7 @@ use hkdf::Hkdf;
 use sha2::Sha256;
 
 // Converts a vector of bytes to a string hex representation.
-pub fn hex(bytes: Vec<u8>) -> String {
+pub fn hex(bytes: &[u8]) -> String {
     bytes.iter()
         .map(|b| format!("{:02x}", b))
         .collect()
@@ -32,8 +32,6 @@ impl KeyPair {
     /// Generates a new `KeyPair` using the OS-level random number generator.
     pub fn generate() -> KeyPair {
         let secret = EphemeralSecret::random(&mut OsRng);
-        let public = secret.public_key();
-
         KeyPair { secret }
     }
 

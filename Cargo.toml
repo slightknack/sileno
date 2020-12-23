@@ -12,6 +12,8 @@ iced_native = "0.3"
 # crypto
 rand_core = { version = "0.5", features = ["getrandom"] }
 k256 = { version = "0.7", features = ["zeroize", "arithmetic", "ecdh"] }
-chacha20poly1305 = { version = "0.7", features = ["chacha20"] }
+chacha20poly1305 = { version = "0.7", features = ["default"] }
 hkdf = "0.10"
 sha2 = "0.9"
+
+# TODO: kitbag, passerine, data-defined-datatypes (ddd)
