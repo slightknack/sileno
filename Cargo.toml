@@ -5,4 +5,11 @@ authors = ["Isaac Clayton <slightknack@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+# gui
 iced = "0.2"
+iced_native = "0.3"
+
+# crypto
+rand = "0.8"
+k256 = { version = "0.7", features = ["zeroize", "arithmetic"] }
+chacha20poly1305 = "0.7"

@@ -7,5 +7,6 @@ pub mod ui;
 pub mod cli;
 
 pub fn main() {
-    ui::run();
+    network::public::KeyPair::generate();
+    // ui::run();
 }
