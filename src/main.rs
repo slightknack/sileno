@@ -17,11 +17,11 @@ pub fn main() {
     println!("your public key: {}", network::key::hex(&your_key.public_bytes()));
     println!("-----------------------");
 
-    let my_side_shared   = my_key.shared_secret(&your_key.public_bytes());
-    let your_side_shared = your_key.shared_secret(&my_key.public_bytes());
+    let my_side_shared   = my_key.shared_secret(&your_key.public_bytes()).unwrap();
+    let your_side_shared = your_key.shared_secret(&my_key.public_bytes()).unwrap();
 
-    println!("my side shared secret:   {}", network::key::hex(&my_side_shared.unwrap().to_vec()));
-    println!("your side shared secret: {}", network::key::hex(&your_side_shared.unwrap().to_vec()));
+    println!("my side shared secret:   {}", network::key::hex(&my_side_shared.to_vec()));
+    println!("your side shared secret: {}", network::key::hex(&your_side_shared.to_vec()));
     println!("-----------------------");
 
     let message = "Hello from me, this is a nice message!";
@@ -41,10 +41,10 @@ pub fn main() {
         &your_key,
         &my_key.public_bytes(),
         nonce,
-        message.as_bytes().to_vec(),
+        encrypted.to_vec(),
     ).unwrap();
 
-    println!("your decrypted message: {:?}", decrypted);
+    println!("your decrypted message: {:?}", std::str::from_utf8(&decrypted));
 
     println!()
 
