@@ -7,5 +7,5 @@ pub mod ui;
 pub mod cli;
 
 pub fn main() {
-    println!("heck");
+    ui::run();
 }
